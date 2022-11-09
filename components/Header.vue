@@ -78,21 +78,21 @@
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <NuxtLink
                   to="/"
-                  class="text-gray-800 px-3 py-2 text-sm font-medium"
+                  class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
                   >Home</NuxtLink
                 >
 
                 <NuxtLink
                   to="products"
-                  class="text-gray-800 px-3 py-2 text-sm font-medium"
+                  class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
                   >Products</NuxtLink
                 >
 
                 <NuxtLink
                   to="about"
-                  class="text-gray-800 px-3 py-2 text-sm font-medium"
+                  class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
                   >About us</NuxtLink
                 >

@@ -41,8 +41,19 @@
               <p>$ {{ store.total }} ETH</p>
             </div>
             <div>
-              <button class="bg-gray-900 px-6 w-full py-2 text-white">
+              <button
+                v-if="store.isconnected"
+                @click="store.cryptoPay()"
+                class="bg-gray-900 px-6 w-full py-2 text-white"
+              >
                 Pay
+              </button>
+              <button
+                v-else
+                @click="store.connect()"
+                class="bg-gray-900 px-6 w-full py-2 text-white"
+              >
+                Connect Wallet
               </button>
               <button
                 @click="store.resetCart()"

@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import * as Web3 from "web3";
 
 export const useStore = defineStore("store", {
   state: () => ({
@@ -22,8 +23,27 @@ export const useStore = defineStore("store", {
         ethereum.request({ method: "eth_requestAccounts" }).then((provider) => {
           if (provider) {
             this.account = ethereum.selectedAddress;
+            this.isconnected = true;
           }
         });
+      }
+    },
+
+    cryptoPay() {
+      if (ethereum) {
+        const web3 = new Web3(
+          Web3.givenProvider || "https://public-node.testnet.rsk.co"
+        );
+
+        web3.eth
+          .sendTransaction({
+            from: ethereum.selectedAddress,
+            to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+            value: "1000000000000000",
+          })
+          .then(function (receipt) {
+            console.log(receipt);
+          });
       }
     },
 

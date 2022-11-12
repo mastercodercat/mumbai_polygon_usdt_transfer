@@ -15,6 +15,15 @@ import { useStore } from "~/stores/store";
 const store = useStore();
 
 const connectTxt = computed(() => {
-  return store.account || "Connect Wallet";
+  const acc = store.account;
+
+  const slicedAcc =
+    new String(acc).slice(0, 4) + "..." + new String(acc).slice(36);
+
+  if (acc) {
+    return slicedAcc;
+  } else {
+    return "Connect Wallet";
+  }
 });
 </script>

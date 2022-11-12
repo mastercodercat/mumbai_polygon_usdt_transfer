@@ -2,7 +2,7 @@
   <header>
     <nav>
       <div class="mx-auto px-8 sm:px-14 lg:px-24 py-8">
-        <div class="relative flex h-16 items-center justify-between">
+        <div class="flex h-16 items-center justify-between">
           <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
             <!-- Mobile menu button-->
             <button

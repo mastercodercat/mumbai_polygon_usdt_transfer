@@ -29,6 +29,7 @@
           />
         </button>
         <button
+          @click="store.addProduct(id)"
           class="h-full bg-gray-900 text-white hover:bg-gray-700 transition-all ease-out duration-300 px-6 flex items-center md:col-span-2 justify-center"
         >
           <span class="pr-2 font-extrabold">Add</span>
@@ -43,12 +44,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["title", "price", "id"],
-  created() {
-    // props are exposed on `this`
-    console.log(this.title);
-  },
-};
+<script setup>
+import { useStore } from "~/stores/store";
+
+const store = useStore();
+const props = defineProps(["title", "price", "id"]);
 </script>

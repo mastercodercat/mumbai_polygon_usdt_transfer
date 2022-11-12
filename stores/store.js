@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 
 export const useStore = defineStore("store", {
   state: () => ({
+    isconnected: false,
+    account: null,
     showCart: false,
     products: [
       { id: 1, title: "Hoodie", price: 0.02 },
@@ -13,6 +15,18 @@ export const useStore = defineStore("store", {
     total: 0,
   }),
   actions: {
+    connect() {
+      const ethereum = window.ethereum;
+
+      if (ethereum) {
+        ethereum.request({ method: "eth_requestAccounts" }).then((provider) => {
+          if (provider) {
+            this.account = ethereum.selectedAddress;
+          }
+        });
+      }
+    },
+
     toggleCart() {
       this.showCart = !this.showCart;
     },

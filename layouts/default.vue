@@ -11,13 +11,17 @@
               @click="store.toggleCart()"
               class="bg-gray-900 py-1 px-3 text-white"
             >
-              <span>x</span>
+              <span class="p-0 m-0">x</span>
             </button>
           </div>
         </div>
         <div class="row-span-6 py-12">
           <h2 class="font-bold mb-5">Your cart:</h2>
-          <ul class="w-full h-[500px] overflow-y-scroll">
+
+          <ul
+            v-if="store.cart.length > 0"
+            class="w-full h-[500px] overflow-y-scroll"
+          >
             <li v-for="(product, index) in store.cart" v-bind:key="index">
               <ListedProduct
                 :title="product.title"
@@ -26,6 +30,9 @@
               />
             </li>
           </ul>
+          <div v-else class="w-full h-[500px] flex align-middle justify-center">
+            <h3 class="my-auto opacity-[80%]">Your cart is empty</h3>
+          </div>
         </div>
         <div class="row-span-1 py-6">
           <div class="grid">

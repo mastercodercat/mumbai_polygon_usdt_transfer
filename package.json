@@ -18,6 +18,7 @@
   "dependencies": {
     "@heroicons/vue": "^2.0.13",
     "@pinia/nuxt": "^0.4.3",
-    "pinia": "^2.0.23"
+    "pinia": "^2.0.23",
+    "web3": "^1.8.1"
   }
 }

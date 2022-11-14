@@ -1,10 +1,15 @@
 <template>
   <button
     @click="store.connect()"
-    class="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-bold disabled:opacity-50"
+    class="bg-gray-800 flex items-center hover:bg-gray-900 text-white px-8 py-3 rounded-full font-bold disabled:opacity-50"
     :disabled="store.isconnected"
   >
-    {{ connectTxt }}
+    <span v-if="store.isconnected"
+      ><img
+        src="~/assets/icons/wallet-white.png"
+        class="w-5 h-5 mr-2"
+        alt="" /></span
+    >{{ connectTxt }}
   </button>
 </template>
 

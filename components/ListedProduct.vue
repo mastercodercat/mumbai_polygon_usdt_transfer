@@ -8,13 +8,19 @@
       </div>
       <div>
         <h1 class="font-bold">{{ title }}</h1>
-        <p>$ {{ price }} ETH</p>
+        <p>$ {{ price }} RIF</p>
       </div>
       <div class="flex align-middle">
         <button
           @click="store.removeProduct(id)"
-          class="bg-red-700 text-white px-6 py-2"
+          class="bg-red-700 text-white px-6 py-2 flex items-center hover:bg-red-800 transition-all ease-out"
         >
+          <span
+            ><img
+              src="~/assets/icons/delete-white.png"
+              class="w-5 h-5 mr-2"
+              alt=""
+          /></span>
           Delete
         </button>
       </div>

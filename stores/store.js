@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import * as Web3 from "web3";
+import * as artifact from "~/contracts/Bitcoffee.json";
 
 export const useStore = defineStore("store", {
   state: () => ({
@@ -7,13 +8,43 @@ export const useStore = defineStore("store", {
     account: null,
     showCart: false,
     products: [
-      { id: 1, title: "Hoodie", price: 0.02 },
-      { id: 2, title: "3x Pins", price: 0.02 },
-      { id: 3, title: "Bonnie", price: 0.02 },
-      { id: 4, title: "T-shirt", price: 0.02 },
+      {
+        id: 1,
+        title: "Hoodie",
+        price: 1,
+        img: "~/assets/images/products/hoodie.jpg",
+      },
+      {
+        id: 2,
+        title: "3x Pins",
+        price: 2,
+        img: "~/assets/images/products/pins.jpg",
+      },
+      {
+        id: 3,
+        title: "Shoes",
+        price: 3,
+        img: "~/assets/images/products/shoe.png",
+      },
+      {
+        id: 4,
+        title: "T-shirt",
+        price: 4,
+        img: "~/assets/images/products/t-shirt.jpg",
+      },
+      {
+        id: 5,
+        title: "Hat",
+        price: 5,
+        img: "~/assets/images/products/hat.png",
+      },
     ],
     cart: [],
     total: 0,
+    paying: false,
+    fetching: false,
+    denied: false,
+    confirmed: false,
   }),
   actions: {
     connect() {
@@ -30,19 +61,43 @@ export const useStore = defineStore("store", {
     },
 
     cryptoPay() {
+      this.paying = true;
+      this.fetching = true;
       if (ethereum) {
         const web3 = new Web3(
           Web3.givenProvider || "https://public-node.testnet.rsk.co"
         );
 
-        web3.eth
-          .sendTransaction({
+        const rifContract = new web3.eth.Contract(
+          artifact.abi,
+          "0x19F64674D8A5B4E652319F5e239eFd3bc969A1fE"
+        );
+
+        let amount = web3.utils.toWei(
+          web3.utils.toBN(this.total).toString(),
+          "ether"
+        );
+
+        rifContract.methods
+          .transfer("0xB37ECC72B98d7004c284fDa84315EaC16903Bda3", amount)
+          .send({
             from: ethereum.selectedAddress,
-            to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
-            value: "1000000000000000",
           })
-          .then(function (receipt) {
+          .on("transactionHash", (hash) => {
+            console.log(hash);
+          })
+          .on("receipt", (receipt) => {
+            // Receipt
             console.log(receipt);
+            this.confirmed = true;
+            this.fetching = false;
+          })
+          .catch((err) => {
+            if (err.code === 4001) {
+              console.log("Request denied.");
+              this.denied = true;
+              this.fetching = false;
+            }
           });
       }
     },

@@ -1,6 +1,6 @@
 <template>
   <main
-    class="h-[80vh] px-6 lg:px-32 xl:px-56 py-16 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 place-items-stretch"
+    class="h-[100vh] px-6 lg:px-32 xl:px-56 py-16 lg:py-40 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 place-items-stretch"
   >
     <div class="my-auto">
       <h1 class="text-6xl font-bold">Explore our deals</h1>

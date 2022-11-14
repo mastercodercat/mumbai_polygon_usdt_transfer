@@ -3,18 +3,21 @@
     class="grid grid-cols-1 grid-rows-1 sm:w-[100%] w-[95%] max-w-[500px] md:max-w-[400px] lg:max-w-[500px] mx-auto shadow-xl"
   >
     <div class="h-[400px] hover:cursor-pointer">
-      <div
-        class="bg-[url('~/assets/images/products/hoodie.jpg')] transition-all ease-out duration-300 w-full h-full bg-contain hover:bg-[length:600px_600px] bg-no-repeat bg-center"
-      ></div>
+      <NuxtLink :to="{ name: 'details-id', params: { id: id } }">
+        <div
+          :class="`bg-[url('${img}')]`"
+          class="transition-all ease-out duration-300 w-full h-full bg-contain hover:bg-[length:600px_600px] bg-no-repeat bg-center"
+        ></div>
+      </NuxtLink>
     </div>
     <div
       class="grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-2 bg-gray-100 h-fit px-12 py-6"
     >
       <div class="my-auto">
-        <NuxtLink to="/"
-          ><h1 class="font-bold text-xl">{{ title }}</h1></NuxtLink
+        <NuxtLink :to="{ name: 'details-id', params: { id: id } }"
+          ><h1 class="font-extrabold text-xl">{{ title }}</h1></NuxtLink
         >
-        <p class="pt-2 m-0 font-normal">{{ price }} ETH</p>
+        <p class="pt-2 m-0 font-normal">$ {{ price }} RIF</p>
       </div>
       <div
         class="my-auto w-full grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-3"
@@ -48,5 +51,5 @@
 import { useStore } from "~/stores/store";
 
 const store = useStore();
-const props = defineProps(["title", "price", "id"]);
+const props = defineProps(["title", "price", "id", "img"]);
 </script>

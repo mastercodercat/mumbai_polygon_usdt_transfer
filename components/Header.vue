@@ -29,14 +29,14 @@
                 >
 
                 <NuxtLink
-                  to="products"
+                  to="/products"
                   class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
                   >Products</NuxtLink
                 >
 
                 <NuxtLink
-                  to="about"
+                  to="/about"
                   class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
                   >About us</NuxtLink

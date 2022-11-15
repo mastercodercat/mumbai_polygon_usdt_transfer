@@ -5,8 +5,7 @@
     <div class="h-[400px] hover:cursor-pointer">
       <NuxtLink :to="{ name: 'details-id', params: { id: id } }">
         <div
-          :class="`bg-[url('${img}')]`"
-          class="transition-all ease-out duration-300 w-full h-full bg-contain hover:bg-[length:600px_600px] bg-no-repeat bg-center"
+          class="bg-[url('~/assets/images/products/hoodie.jpg')] transition-all ease-out duration-300 w-full h-full bg-contain hover:bg-[length:600px_600px] bg-no-repeat bg-center"
         ></div>
       </NuxtLink>
     </div>

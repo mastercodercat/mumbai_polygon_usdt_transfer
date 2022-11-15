@@ -3,8 +3,7 @@
     class="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 my-16 lg:my-48"
   >
     <div
-      :class="`bg-[url('${product.img}')]`"
-      class="transition-all ease-out duration-300 w-full h-[500px] bg-contain bg-no-repeat bg-center"
+      class="bg-[url('~/assets/images/products/hoodie.jpg')] transition-all ease-out duration-300 w-full h-[500px] bg-contain bg-no-repeat bg-center"
     ></div>
     <div class="p-12 xl:w-[80%]">
       <h1 class="font-extrabold text-3xl">{{ product.title }}</h1>

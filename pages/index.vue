@@ -7,17 +7,19 @@
       <p class="my-5">
         See what you can get with <span class="font-bold">Crypto.</span>
       </p>
-      <div>
-        <button
+      <div class="mt-12">
+        <NuxtLink
+          to="/products"
           class="px-8 py-3 border-2 border-gray-800 rounded-full text-gray-800 font-medium hover:font-bold"
         >
           Merch
-        </button>
-        <button
+        </NuxtLink>
+        <NuxtLink
+          to="/products"
           class="px-8 py-3 border-2 ml-3 border-gray-800 rounded-full text-gray-800 font-medium hover:font-bold"
         >
           50% OFF
-        </button>
+        </NuxtLink>
       </div>
     </div>
     <div id="main-container__background"></div>

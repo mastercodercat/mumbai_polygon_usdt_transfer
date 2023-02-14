@@ -25,7 +25,7 @@
                   to="/"
                   class="text-gray-800 px-3 py-2 text-md font-medium"
                   active-class="active"
-                  >Home</NuxtLink
+                  >Inicio</NuxtLink
                 >
 
                 <NuxtLink

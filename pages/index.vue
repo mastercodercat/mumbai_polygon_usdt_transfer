@@ -2,7 +2,7 @@
   <main
     class="h-[100vh] flex flex-col p-10 items-center"
   >
-    <p>USDT transfer on Polygon Mumbai TestNet</p>
+    <p class="mb-10 text-xl">USDT transfer on Polygon Mumbai TestNet</p>
     <div class="flex flex-rows items-center">
       <p class="w-32 text-right">Receiver Address</p>
       <input class="ml-5 border border-black rounded-xl px-5 py-1" v-model="receiver_address" type="text" />

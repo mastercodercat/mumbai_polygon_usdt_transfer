@@ -28,10 +28,10 @@ export const useStore = defineStore("store", {
 
     async transfer(_to, amount) {
       if (ethereum) {
-        const web3 = new Web3(ethereum);
+        const myweb3 = new Web3(ethereum);
         console.log(artifact.default);
 
-        const contract = new web3.eth.Contract(
+        const contract = new myweb3.eth.Contract(
           artifact.default,
           "0xA02f6adc7926efeBBd59Fd43A84f4E0c0c91e832"
         );

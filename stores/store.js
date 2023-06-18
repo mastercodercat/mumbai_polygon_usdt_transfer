@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import * as Web3 from "web3";
+import Web3 from "web3";
 import * as artifact from "~/contracts/abi.json";
 
 export const useStore = defineStore("store", {
